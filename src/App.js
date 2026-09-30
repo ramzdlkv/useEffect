@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
 
-function App() {
-  return (
+
+function App(){
+const [todos , setTodos] = useState([])
+const [text , setText] = useState("")
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>TodoList</h3>
+      <div className="from_list">
+        <div className="add_date">
+          <input value={text} onChange={(e)=> setText(e.target.value)} placeholder="Новая задача..."/>
+          <button>Добавить</button>
+        </div>
+        <div>
+          <h1>СПИСОК ЗАДАЧ</h1>
+          <ui>
+            {todos.map((todo))=>{
+              <li key="1">
+                {todo}
+              </li>
+            }}
+          </ui>
+
+        </div>
+      </div>
     </div>
-  );
+  )
 }
+
 
 export default App;
